@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import { ArrowDown, Users, CheckCircle2, UserCheck, CalendarCheck } from 'lucide-react';
 import ThreeBackground from './ThreeBackground.tsx';
 
-// Import foto bersama Anda di sini:
-import defaultHeroBg from '../assets/images/bareng.jpg';
-// Import logo OSIS Anda di sini:
+// Pastikan file gambar Anda di folder assets:
+import defaultHeroBg from '../assets/images/foto_bersama.jpg';
 import defaultOsisLogo from '../assets/images/LOGO.png';
 
 interface HeroProps {
@@ -12,19 +10,15 @@ interface HeroProps {
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
-  // Anda bisa mengganti URL atau menggunakan path import di atas
-  const [bgImage] = useState<string>(defaultHeroBg);
-  const [logoImage] = useState<string>(defaultOsisLogo);
-
   return (
     <section
       id="beranda"
       className="relative min-h-[960px] flex items-center justify-center overflow-hidden border-b border-[#c5c6cd]/30"
     >
-      {/* Background: Foto Bersama Pengurus OSIS */}
+      {/* Background: Foto Bersama Pengurus OSIS SMKN 1 Rembang */}
       <div className="absolute inset-0 z-0">
         <img
-          src={bgImage}
+          src={defaultHeroBg}
           alt="Foto Bersama OSIS SMKN 1 Rembang"
           className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
         />
@@ -33,12 +27,12 @@ export default function Hero({ onNavigate }: HeroProps) {
         <div className="absolute inset-0 bg-radial from-transparent via-[#0a121e]/40 to-[#0a121e]/90" />
       </div>
 
-      {/* 3D WebGL Logo OSIS Berputar di Tengah */}
-      <ThreeBackground logoUrl={logoImage} />
+      {/* 3D WebGL Three.js: Logo Perisai OSKANSAR 3D */}
+      <ThreeBackground logoUrl={defaultOsisLogo} />
 
-      {/* Konten Teks & Tombol Depan */}
+      {/* Konten Depan Hero */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 flex flex-col items-center text-center text-white">
-        {/* Lencana Periode */}
+        {/* Lencana Institusional */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-[#ffe088]/40 shadow-md text-[#ffe088] mb-6">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffe088] opacity-75" />
@@ -59,7 +53,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           Wadah representasi aspirasi berintegritas tinggi bagi seluruh civitas akademika SMK Negeri 1 Rembang. Membangun kultur organisasi teladan, adaptif terhadap kemajuan teknologi kejuruan dan kebudayaan nusantara.
         </p>
 
-        {/* Tombol Navigasi */}
+        {/* Tombol Aksi */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
           <button
             onClick={() => onNavigate('program-kerja')}
@@ -114,7 +108,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </div>
             <div>
               <div className="text-[22px] font-bold text-white leading-none mb-1 font-heading">
-                99+ Acara
+                45+ Acara
               </div>
               <div className="text-[13px] text-[#cbd5e1]">
                 Realisasi Program Terjadwal
