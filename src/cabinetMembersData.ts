@@ -3,7 +3,7 @@ import { CabinetMember } from './types.ts';
 export const ALL_CABINET_MEMBERS: CabinetMember[] = [
   // =================== BADAN PENGURUS HARIAN (BPH) ===================
   {
-    id: 'ph-1',
+    id: 'bph-1',
     name: 'Raditya Arya Pratama',
     role: 'Ketua Umum OSIS',
     division: 'BPH',
@@ -18,7 +18,7 @@ export const ALL_CABINET_MEMBERS: CabinetMember[] = [
     instagram: '@raditya.pratama'
   },
   {
-    id: 'ph-2',
+    id: 'bph-2',
     name: 'Anindya Putri Larasati',
     role: 'Wakil Ketua Umum I',
     division: 'BPH',
@@ -33,7 +33,7 @@ export const ALL_CABINET_MEMBERS: CabinetMember[] = [
     instagram: '@anindya.larasati'
   },
   {
-    id: 'ph-3',
+    id: 'bph-3',
     name: 'M. Rizky Pratama',
     role: 'Wakil Ketua Umum II',
     division: 'BPH',
@@ -48,7 +48,7 @@ export const ALL_CABINET_MEMBERS: CabinetMember[] = [
     instagram: '@rizky.pratama'
   },
   {
-    id: 'ph-4',
+    id: 'bph-4',
     name: 'M. Fadhil Ramadhan',
     role: 'Sekretaris Umum',
     division: 'BPH',
@@ -63,7 +63,7 @@ export const ALL_CABINET_MEMBERS: CabinetMember[] = [
     instagram: '@fadhil.rmdhn'
   },
   {
-    id: 'ph-5',
+    id: 'bph-5',
     name: 'Aurelia Khansa',
     role: 'Wakil Sekretaris',
     division: 'BPH',
@@ -78,7 +78,7 @@ export const ALL_CABINET_MEMBERS: CabinetMember[] = [
     instagram: '@aureliakhansa'
   },
   {
-    id: 'ph-6',
+    id: 'bph-6',
     name: 'Zahra Almira',
     role: 'Bendahara Umum',
     division: 'BPH',
@@ -93,22 +93,7 @@ export const ALL_CABINET_MEMBERS: CabinetMember[] = [
     instagram: '@zahra.almira'
   },
   {
-    id: 'ph-7',
-    name: 'Daffa Ibnu Sina',
-    role: 'Wakil Bendahara',
-    division: 'BPH',
-    divisionName: 'Badan Pengurus Harian',
-    classGrade: 'XI IPS 1',
-    nis: '2324.11.150',
-    email: 'daffa.ibnu@osis.sman1adhirajasa.sch.id',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
-    isBph: true,
-    isCoordinator: false,
-    bio: 'Pencatatan realisasi dana proposal kegiatan dan audit bukti pembayaran belanja kepanitiaan.',
-    instagram: '@daffa.ibnu'
-  },
-    {
-    id: 'ph-7',
+    id: 'bph-7',
     name: 'Daffa Ibnu Sina',
     role: 'Wakil Bendahara',
     division: 'BPH',
