@@ -11,7 +11,7 @@ interface DirectoryAnggotaModalProps {
 
 const DIVISIONS = [
   { id: 'ALL', label: 'Semua (47)' },
-  { id: 'BPH', label: 'BPH Inti (7)' },
+  { id: 'PH', label: 'PH Inti (8)' },
   { id: 'Sekbid I', label: 'Sekbid I (4)' },
   { id: 'Sekbid II', label: 'Sekbid II (4)' },
   { id: 'Sekbid III', label: 'Sekbid III (4)' },
@@ -72,7 +72,7 @@ export default function DirectoryAnggotaModal({
                 </span>
               </div>
               <p className="text-[12px] text-[#44474c]">
-                Badan Pengurus Harian &amp; 10 Seksi Bidang OSIS SMKN 1 REMBANG (2024/2025)
+              Pengurus Harian &amp; 10 Seksi Bidang OSIS SMKN 1 REMBANG (2026/2027)
               </p>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function DirectoryAnggotaModal({
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#cba72f]" />
             <span>
-              Seluruh 47 anggota disahkan melalui <strong>Surat Keputusan Kepala SMKN 1 REMBANG No: 008/SK/SMKN1-RMB/2024</strong>.
+              Seluruh 47 anggota disahkan melalui <strong>Surat Keputusan Kepala SMKN 1 REMBANG No: 008/SK/SMKN1-RMB/2026</strong>.
             </span>
           </div>
           <button

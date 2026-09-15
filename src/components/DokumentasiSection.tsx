@@ -41,18 +41,6 @@ export default function DokumentasiSection({ onSelectDoc }: DokumentasiSectionPr
         <p className="text-[15px] text-[#44474c] leading-relaxed mb-6">
           Arsip visual rekam jejak pengabdian siswa dalam memupuk prestasi kejuruan, kebudayaan, serta empati sosial kemanusiaan SMKN 1 REMBANG.
         </p>
-
-        {/* Tombol Tertera Langsung di Dokumentasi */}
-        <div className="flex items-center justify-center">
-          <button
-            onClick={handleOpenDrive}
-            className="px-6 py-3.5 rounded-xl bg-[#0e1c2f] hover:bg-[#1a2d48] text-white text-[13px] font-bold flex items-center justify-center gap-2.5 transition-all cursor-pointer shadow-md hover:shadow-lg active:scale-98 font-heading"
-          >
-            <FolderOpen className="w-4 h-4 text-[#ffe088]" />
-            <span>BUKA GOOGLE DRIVE DOKUMENTASI</span>
-            <ExternalLink className="w-4 h-4 text-[#ffe088]" />
-          </button>
-        </div>
       </div>
 
       {/* Bento Visual Gallery Grid dengan Tombol Google Drive di Setiap Kartu */}

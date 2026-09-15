@@ -43,13 +43,13 @@ export default function AspirasiSection({ onOpenModal }: AspirasiSectionProps) {
         {/* Left Column: Descriptive info & Recent Aspirations */}
         <div className="lg:col-span-5 space-y-6">
           <div className="inline-block px-3 py-1 rounded-full bg-[#d3e4ff] text-[#001c38] text-[11px] font-bold tracking-wider uppercase font-heading">
-            RUANG DENGAR MAHASISWA &amp; SISWA
+            RUANG DENGAR SISWA &amp; SISWA
           </div>
           <h2 className="text-[28px] md:text-[34px] font-bold text-[#0e1c2f] tracking-tight font-heading">
             Kotak Aspirasi &amp; Advokasi Pelajar
           </h2>
           <p className="text-[14px] text-[#44474c] leading-relaxed">
-            Dewan Pengurus Harian membuka kanal terbuka bagi setiap keluhan, usulan program, serta perbaikan fasilitas kampus SMKN 1 REMBANG. Setiap laporan dienkripsi dan diproses bersama Majelis Perwakilan Kelas (MPK).
+            Dewan Pengurus Harian membuka kanal terbuka bagi setiap keluhan, usulan program, serta perbaikan fasilitas SMKN 1 REMBANG. Setiap laporan dienkripsi dan diproses bersama Majelis Perwakilan Kelas (MPK).
           </p>
 
           <div className="p-4 rounded-xl bg-white border border-[#c5c6cd]/40 shadow-xs space-y-3">
@@ -91,7 +91,7 @@ export default function AspirasiSection({ onOpenModal }: AspirasiSectionProps) {
             <div className="mb-6 p-4 rounded-xl bg-[#d3e4ff]/50 border border-[#b3d1fd] text-[#001c38] flex items-start gap-3">
               <CheckCircle2 className="w-5 h-5 text-[#426086] shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-[13px] font-bold mb-1">Aspirasi Berhasil Diterima Dewan!</h4>
+                <h4 className="text-[13px] font-bold mb-1">Aspirasi Berhasil Diterima!</h4>
                 <p className="text-[12px] text-[#44474c]">
                   Nomor resi advokasi Anda adalah <strong className="font-mono text-[#0e1c2f]">{submittedTicket}</strong>. Terima kasih telah berpartisipasi menjaga perbaikan almamater.
                 </p>

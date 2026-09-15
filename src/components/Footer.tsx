@@ -21,19 +21,19 @@ export default function Footer({ onNavigate, onOpenDocNotice }: FooterProps) {
                   OSIS SMKN 1 REMBANG
                 </span>
                 <span className="text-[11px] font-semibold text-[#b3d1fd] tracking-widest uppercase block">
-                  KABINET CAKRAWALA BHAKTI 2024/2025
+                  MASA BHAKTI 2026/2027
                 </span>
               </div>
             </div>
 
             <p className="text-[13px] text-[#e6e8ea]/80 leading-relaxed max-w-sm">
-              Gedung Student Center Lt. 2, SMK Negeri 1 Rembang. Mengabdi dengan keteguhan kejuruan, keluhuran budi pekerti, dan kepedulian sosial.
+              OSIS SMK Negeri 1 Rembang. Semangat Berkarya, Membangun Bangsa
             </p>
 
             <div className="space-y-1.5 text-[12px] text-[#e6e8ea]/70">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#cba72f]" />
-                <span>Jl. Raya Rembang No. 1, Rembang, Jawa Tengah</span>
+                <span>Dusun I, Bodas Karangjati, Rembang, Purbalingga Regency, Central Java 53356</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#cba72f]" />
@@ -101,13 +101,13 @@ export default function Footer({ onNavigate, onOpenDocNotice }: FooterProps) {
             </p>
             <div className="flex flex-col gap-2 text-[12px]">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/osis_skansar"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-white flex items-center justify-between p-2 rounded bg-white/5 border border-white/10 hover:border-[#cba72f]/40 transition-colors"
               >
                 <span>Instagram Resmi</span>
-                <span className="text-[#ffe088] font-mono">@osis_adhirajasa</span>
+                <span className="text-[#ffe088] font-mono">@osis_skansar</span>
               </a>
               <a
                 href="https://youtube.com"
@@ -116,7 +116,7 @@ export default function Footer({ onNavigate, onOpenDocNotice }: FooterProps) {
                 className="hover:text-white flex items-center justify-between p-2 rounded bg-white/5 border border-white/10 hover:border-[#cba72f]/40 transition-colors"
               >
                 <span>YouTube Channel</span>
-                <span className="text-[#ffe088]">Adhirajasa TV</span>
+                <span className="text-[#ffe088]">SMK Negeri 1 Rembang</span>
               </a>
             </div>
           </div>

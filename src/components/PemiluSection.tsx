@@ -34,7 +34,7 @@ export default function PemiluSection({ onOpenRisalah }: PemiluSectionProps) {
           SUARA DEMOKRASI KAMPUS SEKOLAH
         </div>
         <h2 className="text-[28px] md:text-[36px] font-bold text-[#0e1c2f] tracking-tight mb-4 font-heading">
-          Kandidat Pemilu OSIS 2025/2026
+          Kandidat Pemilu OSIS 2026/2027
         </h2>
         <p className="text-[15px] text-[#44474c] leading-relaxed">
           Penyelenggaraan Pemilihan Umum Ketua &amp; Wakil Ketua OSIS secara jujur, adil, dan berbasis verifikasi digital KPU Siswa SMKN 1 REMBANG.

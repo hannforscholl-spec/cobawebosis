@@ -3,7 +3,7 @@ import paslon3Photo from './assets/images/paslon_03_photo_1789458813046.jpg';
 
 export const DEFAULT_GDRIVE_LINK = 'https://drive.google.com/drive/folders/1OSIS-SMAN1-Adhirajasa-ArsipDokumentasi-2024-2025?usp=sharing';
 
-export const BPH_MEMBERS: BphMember[] = [
+export const PH_MEMBERS: BphMember[] = [
   {
     id: 'ketua-umum',
     name: 'Raditya Arya Pratama',

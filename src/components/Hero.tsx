@@ -26,7 +26,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#cba72f]" />
           </span>
           <span className="text-[11px] font-bold tracking-wider uppercase font-heading">
-            DEWAN PENGURUS HARIAN MASA BAKTI 2024/2025
+            DEWAN PENGURUS HARIAN MASA BAKTI 2026/2027
           </span>
         </div>
 
@@ -55,7 +55,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg bg-white/90 text-[#0e1c2f] text-[14px] font-semibold shadow-xs border border-[#c5c6cd]/70 hover:bg-[#f2f4f6] transition-all duration-200 cursor-pointer active:scale-95"
           >
             <Users className="w-4 h-4 text-[#426086]" />
-            <span>Struktur Pengurus BPH</span>
+            <span>Struktur Pengurus PH</span>
           </button>
         </div>
 
@@ -95,7 +95,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </div>
             <div>
               <div className="text-[20px] font-bold text-[#0e1c2f] leading-none mb-1 font-heading">
-                45+ Acara
+                99+ Acara
               </div>
               <div className="text-[13px] text-[#44474c]">
                 Realisasi Program Terjadwal

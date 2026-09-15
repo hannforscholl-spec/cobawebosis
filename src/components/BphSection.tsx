@@ -42,7 +42,7 @@ export default function BphSection({ onSelectMember, onOpenAllMembers }: BphSect
           STRUKTUR KEPEMIMPINAN INTI
         </div>
         <h2 className="text-[28px] md:text-[36px] font-bold text-[#0e1c2f] tracking-tight mb-4 font-heading">
-          Badan Pengurus Harian (BPH)
+        Pengurus Harian (PH)
         </h2>
         <p className="text-[15px] text-[#44474c] leading-relaxed">
           Pilar eksekutif yang memegang amanah konstitusi OSIS SMKN 1 REMBANG, bertanggung jawab dalam mengoordinasikan seluruh komisi serta perwakilan majelis kelas.
@@ -113,14 +113,14 @@ export default function BphSection({ onSelectMember, onOpenAllMembers }: BphSect
           <div>
             <div className="flex items-center gap-2 justify-center sm:justify-start flex-wrap">
               <h3 className="text-[18px] font-bold font-heading">
-                Seluruh Anggota Kabinet Cakrawala Bhakti
+                Seluruh Anggota OSIS SMK Negeri 1 Rembang
               </h3>
               <span className="px-2.5 py-0.5 rounded-full bg-[#d3e4ff] text-[#001c38] text-[11px] font-bold">
                 Struktur Lengkap
               </span>
             </div>
             <p className="text-[13px] text-[#d3e4ff] mt-1 max-w-xl">
-              Terdiri dari 7 pengurus Badan Pengurus Harian dan 40 staf di 10 Seksi Bidang. Buka direktori untuk melihat profil, kontak, NIS, dan penugasan seluruh anggota.
+              Terdiri dari 8 Badan Pengurus Harian dan 39 staf di 10 Seksi Bidang. Buka direktori untuk melihat profil, kontak, NIS, dan penugasan seluruh anggota.
             </p>
           </div>
         </div>
