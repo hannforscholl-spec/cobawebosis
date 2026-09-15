@@ -26,7 +26,7 @@ export default function ThreeBackground({
       container.clientWidth || window.innerWidth;
 
     const height =
-      container.clientHeight || 942;
+      container.clientHeight || window.innerHeight;
 
     const scene = new THREE.Scene();
 
@@ -45,6 +45,7 @@ export default function ThreeBackground({
       renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: true,
+        powerPreference: 'high-performance',
       });
     } catch (error) {
       console.warn(
@@ -61,10 +62,13 @@ export default function ThreeBackground({
       Math.min(window.devicePixelRatio || 1, 2)
     );
 
+    renderer.outputColorSpace =
+      THREE.SRGBColorSpace;
+
     renderer.toneMapping =
       THREE.ACESFilmicToneMapping;
 
-    renderer.toneMappingExposure = 1.25;
+    renderer.toneMappingExposure = 1.2;
 
     while (container.firstChild) {
       container.removeChild(container.firstChild);
@@ -79,16 +83,15 @@ export default function ThreeBackground({
     const ambientLight =
       new THREE.AmbientLight(
         0xffffff,
-        1.35
+        1.5
       );
 
     scene.add(ambientLight);
 
-    // Gold light
     const goldLight =
       new THREE.DirectionalLight(
         0xffd76a,
-        3.0
+        3
       );
 
     goldLight.position.set(
@@ -99,7 +102,6 @@ export default function ThreeBackground({
 
     scene.add(goldLight);
 
-    // White / silver light
     const silverLight =
       new THREE.DirectionalLight(
         0xffffff,
@@ -114,7 +116,6 @@ export default function ThreeBackground({
 
     scene.add(silverLight);
 
-    // Blue subtle light
     const blueLight =
       new THREE.DirectionalLight(
         0x5b8cff,
@@ -129,7 +130,6 @@ export default function ThreeBackground({
 
     scene.add(blueLight);
 
-    // Front point light
     const pointLight =
       new THREE.PointLight(
         0xffffff,
@@ -146,25 +146,13 @@ export default function ThreeBackground({
     scene.add(pointLight);
 
     // =========================================================
-    // MAIN GROUPS
+    // MAIN GROUP
     // =========================================================
 
     const emblemGroup =
       new THREE.Group();
 
     scene.add(emblemGroup);
-
-    /*
-     * Logo dan ring dibuat dalam group yang berbeda.
-     *
-     * logoGroup:
-     * - tetap tegak
-     * - tidak ikut rotasi ring
-     *
-     * ringGroup:
-     * - boleh miring
-     * - boleh berputar
-     */
 
     const logoGroup =
       new THREE.Group();
@@ -185,7 +173,7 @@ export default function ThreeBackground({
         metalness: 0.95,
         roughness: 0.18,
         emissive: 0x3b2600,
-        emissiveIntensity: 0.35,
+        emissiveIntensity: 0.3,
       });
 
     const silverMaterial =
@@ -199,11 +187,11 @@ export default function ThreeBackground({
 
     const shieldMaterial =
       new THREE.MeshStandardMaterial({
-        color: 0x090d16,
-        metalness: 0.88,
-        roughness: 0.28,
-        emissive: 0x03050a,
-        emissiveIntensity: 0.12,
+        color: 0x05070c,
+        metalness: 0.9,
+        roughness: 0.22,
+        emissive: 0x020307,
+        emissiveIntensity: 0.1,
       });
 
     // =========================================================
@@ -228,7 +216,7 @@ export default function ThreeBackground({
           renderer.capabilities.getMaxAnisotropy();
 
         // =====================================================
-        // GET ORIGINAL IMAGE RATIO
+        // ORIGINAL IMAGE RATIO
         // =====================================================
 
         const image =
@@ -243,17 +231,145 @@ export default function ThreeBackground({
         const aspectRatio =
           imageWidth / imageHeight;
 
-        /*
-         * Ukuran logo.
-         *
-         * Tinggi ditentukan,
-         * lebar mengikuti ukuran asli gambar.
-         */
+        // =====================================================
+        // LOGO SIZE
+        // =====================================================
 
-        const logoHeight = 3.15;
+        const logoHeight = 3.35;
 
         const logoWidth =
           logoHeight * aspectRatio;
+
+        // =====================================================
+        // SHIELD BACKING
+        // =====================================================
+
+        /*
+         * Shield dibuat sedikit lebih besar
+         * daripada logo asli.
+         */
+
+        const shieldWidth =
+          logoWidth + 0.20;
+
+        const shieldHeight =
+          logoHeight + 0.20;
+
+        const shieldShape =
+          new THREE.Shape();
+
+        // -----------------------------------------------------
+        // TOP POINT
+        // -----------------------------------------------------
+
+        shieldShape.moveTo(
+          0,
+          shieldHeight / 2
+        );
+
+        // -----------------------------------------------------
+        // TOP RIGHT
+        // -----------------------------------------------------
+
+        shieldShape.quadraticCurveTo(
+          shieldWidth * 0.20,
+          shieldHeight * 0.46,
+          shieldWidth * 0.46,
+          shieldHeight * 0.36
+        );
+
+        // -----------------------------------------------------
+        // RIGHT SIDE
+        // -----------------------------------------------------
+
+        shieldShape.lineTo(
+          shieldWidth * 0.43,
+          shieldHeight * 0.02
+        );
+
+        // -----------------------------------------------------
+        // LOWER RIGHT
+        // -----------------------------------------------------
+
+        shieldShape.quadraticCurveTo(
+          shieldWidth * 0.40,
+          -shieldHeight * 0.28,
+          0,
+          -shieldHeight / 2
+        );
+
+        // -----------------------------------------------------
+        // LOWER LEFT
+        // -----------------------------------------------------
+
+        shieldShape.quadraticCurveTo(
+          -shieldWidth * 0.40,
+          -shieldHeight * 0.28,
+          -shieldWidth * 0.43,
+          shieldHeight * 0.02
+        );
+
+        // -----------------------------------------------------
+        // LEFT SIDE
+        // -----------------------------------------------------
+
+        shieldShape.lineTo(
+          -shieldWidth * 0.46,
+          shieldHeight * 0.36
+        );
+
+        // -----------------------------------------------------
+        // TOP LEFT
+        // -----------------------------------------------------
+
+        shieldShape.quadraticCurveTo(
+          -shieldWidth * 0.20,
+          shieldHeight * 0.46,
+          0,
+          shieldHeight / 2
+        );
+
+        shieldShape.closePath();
+
+        // =====================================================
+        // EXTRUDED 3D SHIELD
+        // =====================================================
+
+        const shieldGeometry =
+          new THREE.ExtrudeGeometry(
+            shieldShape,
+            {
+              depth: 0.16,
+              bevelEnabled: true,
+              bevelThickness: 0.035,
+              bevelSize: 0.035,
+              bevelSegments: 5,
+              curveSegments: 32,
+            }
+          );
+
+        shieldGeometry.center();
+
+        const shieldMesh =
+          new THREE.Mesh(
+            shieldGeometry,
+            shieldMaterial
+          );
+
+        /*
+         * PENTING:
+         * Shield berada DI BELAKANG logo.
+         */
+
+        shieldMesh.position.set(
+          0,
+          0,
+          -0.08
+        );
+
+        shieldMesh.renderOrder = 1;
+
+        logoGroup.add(shieldMesh);
 
         // =====================================================
         // LOGO FRONT
@@ -262,11 +378,27 @@ export default function ThreeBackground({
         const logoMaterial =
           new THREE.MeshStandardMaterial({
             map: texture,
+
+            /*
+             * INI YANG SANGAT PENTING.
+             * Area transparan PNG tidak akan dirender.
+             */
+
             transparent: true,
-            metalness: 0.25,
+            alphaTest: 0.05,
+
+            /*
+             * Jangan biarkan plane logo
+             * menulis depth buffer sehingga
+             * shield belakang tidak mengganggu.
+             */
+
+            depthWrite: false,
+
+            metalness: 0.15,
             roughness: 0.3,
+
             side: THREE.DoubleSide,
-            depthWrite: true,
           });
 
         const logoGeometry =
@@ -282,9 +414,7 @@ export default function ThreeBackground({
           );
 
         /*
-         * LOGO TETAP TEGAK
-         *
-         * Tidak ada rotation X/Y di sini.
+         * Logo berada paling depan.
          */
 
         logoMesh.position.set(
@@ -293,181 +423,69 @@ export default function ThreeBackground({
           0.18
         );
 
+        logoMesh.renderOrder = 10;
+
         logoGroup.add(logoMesh);
 
         // =====================================================
-        // SHIELD 3D BACKING
+        // GOLD OUTER BORDER
         // =====================================================
 
-        /*
-         * Membuat bentuk shield/perisai.
-         *
-         * Tidak menggunakan:
-         * - BoxGeometry
-         * - CircleGeometry
-         * - CylinderGeometry
-         *
-         * Jadi bentuk dasarnya benar-benar perisai.
-         */
+        const borderPoints = [
+          new THREE.Vector3(
+            0,
+            shieldHeight / 2,
+            0.12
+          ),
 
-        const shieldWidth =
-          logoWidth + 0.22;
+          new THREE.Vector3(
+            shieldWidth * 0.46,
+            shieldHeight * 0.36,
+            0.12
+          ),
 
-        const shieldHeight =
-          logoHeight + 0.22;
+          new THREE.Vector3(
+            shieldWidth * 0.43,
+            shieldHeight * 0.02,
+            0.12
+          ),
 
-        const shieldShape =
-          new THREE.Shape();
+          new THREE.Vector3(
+            shieldWidth * 0.40,
+            -shieldHeight * 0.28,
+            0.12
+          ),
 
-        // Titik kiri atas
-        shieldShape.moveTo(
-          -shieldWidth / 2,
-          shieldHeight * 0.36
-        );
+          new THREE.Vector3(
+            0,
+            -shieldHeight / 2,
+            0.12
+          ),
 
-        // Lengkungan atas kiri -> tengah
-        shieldShape.quadraticCurveTo(
-          -shieldWidth * 0.22,
-          shieldHeight * 0.50,
-          0,
-          shieldHeight * 0.48
-        );
+          new THREE.Vector3(
+            -shieldWidth * 0.40,
+            -shieldHeight * 0.28,
+            0.12
+          ),
 
-        // Lengkungan atas tengah -> kanan
-        shieldShape.quadraticCurveTo(
-          shieldWidth * 0.22,
-          shieldHeight * 0.50,
-          shieldWidth / 2,
-          shieldHeight * 0.36
-        );
+          new THREE.Vector3(
+            -shieldWidth * 0.43,
+            shieldHeight * 0.02,
+            0.12
+          ),
 
-        // Sisi kanan turun
-        shieldShape.lineTo(
-          shieldWidth * 0.43,
-          shieldHeight * 0.02
-        );
+          new THREE.Vector3(
+            -shieldWidth * 0.46,
+            shieldHeight * 0.36,
+            0.12
+          ),
 
-        // Lengkungan bawah kanan
-        shieldShape.quadraticCurveTo(
-          shieldWidth * 0.38,
-          -shieldHeight * 0.25,
-          0,
-          -shieldHeight / 2
-        );
-
-        // Lengkungan bawah kiri
-        shieldShape.quadraticCurveTo(
-          -shieldWidth * 0.38,
-          -shieldHeight * 0.25,
-          -shieldWidth * 0.43,
-          shieldHeight * 0.02
-        );
-
-        // Kembali ke kiri atas
-        shieldShape.closePath();
-
-        // =====================================================
-        // EXTRUDE SHIELD
-        // =====================================================
-
-        const shieldGeometry =
-          new THREE.ExtrudeGeometry(
-            shieldShape,
-            {
-              depth: 0.16,
-
-              bevelEnabled: true,
-
-              bevelThickness: 0.035,
-
-              bevelSize: 0.035,
-
-              bevelSegments: 5,
-
-              curveSegments: 32,
-            }
-          );
-
-        shieldGeometry.center();
-
-        const shieldMesh =
-          new THREE.Mesh(
-            shieldGeometry,
-            shieldMaterial
-          );
-
-        shieldMesh.position.set(
-          0,
-          0,
-          0.02
-        );
-
-        logoGroup.add(shieldMesh);
-
-        // =====================================================
-        // SHIELD GOLD BORDER
-        // =====================================================
-
-        /*
-         * Border mengikuti siluet shield.
-         */
-
-        const borderPoints =
-          [
-            new THREE.Vector3(
-              -shieldWidth / 2,
-              shieldHeight * 0.36,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              -shieldWidth * 0.43,
-              shieldHeight * 0.02,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              -shieldWidth * 0.38,
-              -shieldHeight * 0.25,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              0,
-              -shieldHeight / 2,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              shieldWidth * 0.38,
-              -shieldHeight * 0.25,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              shieldWidth * 0.43,
-              shieldHeight * 0.02,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              shieldWidth / 2,
-              shieldHeight * 0.36,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              0,
-              shieldHeight * 0.48,
-              0.17
-            ),
-
-            new THREE.Vector3(
-              -shieldWidth / 2,
-              shieldHeight * 0.36,
-              0.17
-            ),
-          ];
+          new THREE.Vector3(
+            0,
+            shieldHeight / 2,
+            0.12
+          ),
+        ];
 
         const shieldCurve =
           new THREE.CatmullRomCurve3(
@@ -480,8 +498,8 @@ export default function ThreeBackground({
         const borderGeometry =
           new THREE.TubeGeometry(
             shieldCurve,
-            96,
-            0.026,
+            128,
+            0.028,
             10,
             false
           );
@@ -492,14 +510,15 @@ export default function ThreeBackground({
             goldMaterial
           );
 
+        borderMesh.renderOrder = 12;
+
         logoGroup.add(borderMesh);
 
         // =====================================================
-        // INNER SHIELD BORDER
+        // INNER SILVER BORDER
         // =====================================================
 
-        const innerScale =
-          0.92;
+        const innerScale = 0.94;
 
         const innerWidth =
           shieldWidth * innerScale;
@@ -507,62 +526,61 @@ export default function ThreeBackground({
         const innerHeight =
           shieldHeight * innerScale;
 
-        const innerPoints =
-          [
-            new THREE.Vector3(
-              -innerWidth / 2,
-              innerHeight * 0.36,
-              0.175
-            ),
+        const innerPoints = [
+          new THREE.Vector3(
+            0,
+            innerHeight / 2,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              -innerWidth * 0.43,
-              innerHeight * 0.02,
-              0.175
-            ),
+          new THREE.Vector3(
+            innerWidth * 0.46,
+            innerHeight * 0.36,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              -innerWidth * 0.38,
-              -innerHeight * 0.25,
-              0.175
-            ),
+          new THREE.Vector3(
+            innerWidth * 0.43,
+            innerHeight * 0.02,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              0,
-              -innerHeight / 2,
-              0.175
-            ),
+          new THREE.Vector3(
+            innerWidth * 0.40,
+            -innerHeight * 0.28,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              innerWidth * 0.38,
-              -innerHeight * 0.25,
-              0.175
-            ),
+          new THREE.Vector3(
+            0,
+            -innerHeight / 2,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              innerWidth * 0.43,
-              innerHeight * 0.02,
-              0.175
-            ),
+          new THREE.Vector3(
+            -innerWidth * 0.40,
+            -innerHeight * 0.28,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              innerWidth / 2,
-              innerHeight * 0.36,
-              0.175
-            ),
+          new THREE.Vector3(
+            -innerWidth * 0.43,
+            innerHeight * 0.02,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              0,
-              innerHeight * 0.48,
-              0.175
-            ),
+          new THREE.Vector3(
+            -innerWidth * 0.46,
+            innerHeight * 0.36,
+            0.14
+          ),
 
-            new THREE.Vector3(
-              -innerWidth / 2,
-              innerHeight * 0.36,
-              0.175
-            ),
-          ];
+          new THREE.Vector3(
+            0,
+            innerHeight / 2,
+            0.14
+          ),
+        ];
 
         const innerCurve =
           new THREE.CatmullRomCurve3(
@@ -575,7 +593,7 @@ export default function ThreeBackground({
         const innerBorderGeometry =
           new THREE.TubeGeometry(
             innerCurve,
-            96,
+            128,
             0.012,
             8,
             false
@@ -587,25 +605,27 @@ export default function ThreeBackground({
             silverMaterial
           );
 
+        innerBorderMesh.renderOrder = 13;
+
         logoGroup.add(
           innerBorderMesh
         );
 
         // =====================================================
-        // BACK GLOW
+        // GOLD GLOW
         // =====================================================
 
         const glowGeometry =
           new THREE.PlaneGeometry(
-            logoWidth + 0.75,
-            logoHeight + 0.75
+            logoWidth + 0.7,
+            logoHeight + 0.7
           );
 
         const glowMaterial =
           new THREE.MeshBasicMaterial({
             color: 0xd4af37,
             transparent: true,
-            opacity: 0.05,
+            opacity: 0.055,
             blending:
               THREE.AdditiveBlending,
             depthWrite: false,
@@ -620,15 +640,17 @@ export default function ThreeBackground({
         glowMesh.position.set(
           0,
           0,
-          -0.10
+          -0.16
         );
+
+        glowMesh.renderOrder = 0;
 
         logoGroup.add(glowMesh);
       }
     );
 
     // =========================================================
-    // OUTER ORBIT RING — GOLD
+    // OUTER ORBIT — GOLD
     // =========================================================
 
     const ringGeo1 =
@@ -645,11 +667,6 @@ export default function ThreeBackground({
         goldMaterial
       );
 
-    /*
-     * Ring dimiringkan.
-     * Logo tidak ikut dimiringkan.
-     */
-
     ring1.rotation.x =
       Math.PI / 3.1;
 
@@ -659,7 +676,7 @@ export default function ThreeBackground({
     ringGroup.add(ring1);
 
     // =========================================================
-    // OUTER ORBIT RING — SILVER
+    // OUTER ORBIT — SILVER
     // =========================================================
 
     const ringGeo2 =
@@ -685,7 +702,7 @@ export default function ThreeBackground({
     ringGroup.add(ring2);
 
     // =========================================================
-    // THIN DARK ORBIT
+    // DARK ORBIT
     // =========================================================
 
     const ringGeo3 =
@@ -737,7 +754,7 @@ export default function ThreeBackground({
     ringGroup.add(ring4);
 
     // =========================================================
-    // GOLD FLOATING PARTICLES
+    // GOLD PARTICLES
     // =========================================================
 
     const particleCount = 100;
@@ -826,28 +843,27 @@ export default function ThreeBackground({
     // RESIZE
     // =========================================================
 
-    const handleResize =
-      () => {
-        if (!container) return;
+    const handleResize = () => {
+      if (!container) return;
 
-        const newWidth =
-          container.clientWidth ||
-          window.innerWidth;
+      const newWidth =
+        container.clientWidth ||
+        window.innerWidth;
 
-        const newHeight =
-          container.clientHeight ||
-          942;
+      const newHeight =
+        container.clientHeight ||
+        window.innerHeight;
 
-        camera.aspect =
-          newWidth / newHeight;
+      camera.aspect =
+        newWidth / newHeight;
 
-        camera.updateProjectionMatrix();
+      camera.updateProjectionMatrix();
 
-        renderer.setSize(
-          newWidth,
-          newHeight
-        );
-      };
+      renderer.setSize(
+        newWidth,
+        newHeight
+      );
+    };
 
     window.addEventListener(
       'resize',
@@ -864,91 +880,88 @@ export default function ThreeBackground({
 
     let animationFrameId = 0;
 
-    const animate =
-      () => {
-        animationFrameId =
-          requestAnimationFrame(
-            animate
-          );
-
-        const elapsedTime =
-          clock.getElapsedTime();
-
-        // Smooth mouse
-        targetX +=
-          (mouseX - targetX) *
-          0.05;
-
-        targetY +=
-          (mouseY - targetY) *
-          0.05;
-
-        // =====================================================
-        // LOGO MOVEMENT
-        // =====================================================
-
-        /*
-         * Logo sedikit floating.
-         * TIDAK dirotasi.
-         */
-
-        logoGroup.position.x =
-          targetX * 0.42;
-
-        logoGroup.position.y =
-          Math.sin(
-            elapsedTime * 0.8
-          ) *
-            0.08 -
-          targetY * 0.22;
-
-        // =====================================================
-        // RING MOVEMENT
-        // =====================================================
-
-        ringGroup.position.x =
-          targetX * 0.26;
-
-        ringGroup.position.y =
-          -targetY * 0.18;
-
-        // =====================================================
-        // RING ROTATION
-        // =====================================================
-
-        ring1.rotation.z =
-          elapsedTime * 0.15;
-
-        ring2.rotation.y =
-          -elapsedTime * 0.18;
-
-        ring3.rotation.z =
-          elapsedTime * 0.08;
-
-        ring4.rotation.y =
-          elapsedTime * 0.12;
-
-        // =====================================================
-        // PARTICLES
-        // =====================================================
-
-        particleSystem.rotation.y =
-          elapsedTime * 0.018;
-
-        particleSystem.rotation.x =
-          Math.sin(
-            elapsedTime * 0.1
-          ) * 0.03;
-
-        // =====================================================
-        // RENDER
-        // =====================================================
-
-        renderer.render(
-          scene,
-          camera
+    const animate = () => {
+      animationFrameId =
+        requestAnimationFrame(
+          animate
         );
-      };
+
+      const elapsedTime =
+        clock.getElapsedTime();
+
+      // -------------------------------------------------------
+      // SMOOTH MOUSE
+      // -------------------------------------------------------
+
+      targetX +=
+        (mouseX - targetX) *
+        0.05;
+
+      targetY +=
+        (mouseY - targetY) *
+        0.05;
+
+      // -------------------------------------------------------
+      // LOGO FLOATING
+      // -------------------------------------------------------
+
+      logoGroup.position.x =
+        targetX * 0.42;
+
+      logoGroup.position.y =
+        Math.sin(
+          elapsedTime * 0.8
+        ) *
+          0.08 -
+        targetY * 0.22;
+
+      // -------------------------------------------------------
+      // RING PARALLAX
+      // -------------------------------------------------------
+
+      ringGroup.position.x =
+        targetX * 0.26;
+
+      ringGroup.position.y =
+        -targetY * 0.18;
+
+      // -------------------------------------------------------
+      // RING ROTATION
+      // -------------------------------------------------------
+
+      ring1.rotation.z =
+        elapsedTime * 0.15;
+
+      ring2.rotation.y =
+        -elapsedTime * 0.18;
+
+      ring3.rotation.z =
+        elapsedTime * 0.08;
+
+      ring4.rotation.y =
+        elapsedTime * 0.12;
+
+      // -------------------------------------------------------
+      // PARTICLES
+      // -------------------------------------------------------
+
+      particleSystem.rotation.y =
+        elapsedTime * 0.018;
+
+      particleSystem.rotation.x =
+        Math.sin(
+          elapsedTime * 0.1
+        ) * 0.03;
+
+      // -------------------------------------------------------
+      // RENDER
+      // -------------------------------------------------------
+
+      renderer.render(
+        scene,
+        camera
+      );
+    };
 
     animate();
 
