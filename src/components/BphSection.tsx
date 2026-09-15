@@ -1,6 +1,6 @@
 import { useState, MouseEvent } from 'react';
 import { Mail, Award, IdCard, ChevronRight, Users, Sparkles } from 'lucide-react';
-import { BPH_MEMBERS } from '../data.ts';
+import { PH_MEMBERS } from '../data.ts';
 import { BphMember } from '../types.ts';
 
 interface BphSectionProps {
@@ -51,7 +51,7 @@ export default function BphSection({ onSelectMember, onOpenAllMembers }: BphSect
 
       {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {BPH_MEMBERS.map((member) => (
+        {PH_MEMBERS.map((member) => (
           <div
             key={member.id}
             onMouseMove={(e) => handleMouseMove(e, member.id)}
