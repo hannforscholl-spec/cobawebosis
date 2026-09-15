@@ -31,7 +31,7 @@ export default function PemiluSection({ onOpenRisalah }: PemiluSectionProps) {
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-16">
         <div className="inline-block px-3 py-1 rounded-full bg-[#ffe088]/30 text-[#735c00] text-[11px] font-bold tracking-wider uppercase mb-3 border border-[#cba72f]/40 font-heading">
-          SUARA DEMOKRASI KAMPUS SEKOLAH
+          SUARA DEMOKRASI SEKOLAH
         </div>
         <h2 className="text-[28px] md:text-[36px] font-bold text-[#0e1c2f] tracking-tight mb-4 font-heading">
           Kandidat Pemilu OSIS 2026/2027

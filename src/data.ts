@@ -224,9 +224,9 @@ export const PASLON_LIST: PaslonKandidat[] = [
   {
     id: 'paslon-01',
     number: '01',
-    names: 'Aryasatya & Maheswara',
-    ketua: 'Aryasatya Wijaya (XI MIPA 2)',
-    wakil: 'Maheswara Daniswara (XI IPS 1)',
+    names: 'Agung & Indah',
+    ketua: 'Agung Nawwaf Hilal Al-Rauf (XI FKK)',
+    wakil: 'Indah (X PPLG 3)',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCF9T8VBGJY4mn2C6A6g7OnkUnjC8XFRPJpIe_j-52rLnnoyMxCpXKanMNB-1IkaMAtsxOI3AOlfJQkNDAQKN9SBX_zCHciFAmOGCv9n0RT9Ei-enpjis6zdu7uEixq33N2hVD2iJ6K_zq_GtXMTDLLoJVc8RXbZztd8TGuTVzlKU1kAHTzM6wcziQeYpxX9c760JnPC12OjESrT_8riFSAAJizrsGWGJq5eryKWRDh08QQtGv9wcE',
     badgeText: 'Terverifikasi KPU',
     slogan: 'Aspiratif, Berintegritas, Memimpin dengan Sains dan Nurani',
@@ -246,10 +246,10 @@ export const PASLON_LIST: PaslonKandidat[] = [
   {
     id: 'paslon-02',
     number: '02',
-    names: 'Kalyana & Danendra',
-    ketua: 'Kalyana Shafa (XI MIPA 4)',
-    wakil: 'Danendra Bimasakti (XI MIPA 1)',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAmu5gWSxGEXx8UTQT0Ia3nkvdGYMdm9oKE5nC2RxRfxDuM_AZpfMJw8bEXP047fAxw1zWsxZH9Ndf3uvyau2zNLPOET60DfsOKF2-U-vMzFdhMlRjIhhYCieqT7vPpz7P4auOAg7VGkunQf06sN7Fqh1k5_rTuo59MMYwv22p8H7M5tAr_agUqHSHgTyARzRlusoXraOabcqeDxYYAbjKdRPMp_SE3qw7BNYJcCsHfJueDyJfbJfU',
+    names: 'Caca & Didi',
+    ketua: 'Sri Cahyani (XI BD 1)',
+    wakil: 'Ahmad Muzhadi (X PM 3)',
+    image: "paslon2.JPG",
     badgeText: 'Terverifikasi KPU',
     slogan: 'Kolaborasi Nyata Menuju Harmoni Prestasi Civitas Almamater',
     vision: '"Menciptakan ekosistem almamater yang kolaboratif, memuliakan kebhinekaan minat, serta memperkuat solidaritas sosial siswa lintas jenjang kelas."',
@@ -268,10 +268,10 @@ export const PASLON_LIST: PaslonKandidat[] = [
   {
     id: 'paslon-03',
     number: '03',
-    names: 'Reyhan & Naura',
-    ketua: 'Reyhan Alfarizi (XI MIPA 3)',
-    wakil: 'Naura Az-Zahra (XI IPS 2)',
-    image: paslon3Photo,
+    names: 'Alfin & Nani',
+    ketua: 'Alfin Febrianto Hidayat (XI RPL 2)',
+    wakil: 'Nani (X PM 1)',
+    image: paslon3.jpg,
     badgeText: 'Terverifikasi KPU',
     slogan: 'Inovasi Digital, Karakter Tangguh, Aksi Nyata untuk Seluruh Pelajar',
     vision: '"Mewujudkan OSIS SMAN 1 Adhirajasa yang inklusif, adaptif terhadap kemajuan era digital, serta menjadi episentrum kolaborasi dan inkubasi potensi pelajar."',
@@ -300,11 +300,11 @@ export const INITIAL_ASPIRASI: {
 }[] = [
   {
     id: 'asp-1',
-    name: 'Anonim (Siswa MIPA)',
+    name: 'Anonim (Siswa RPL)',
     grade: 'Kelas XI (Sebelas)',
     category: 'Fasilitas & Sarana',
-    message: 'Mohon perbaikan proyektor di ruang Lab Fisika 2 dan penambahan stopkontak di gazebo belajar mandiri.',
-    timestamp: '14 Sep 2024, 14:20 WIB',
+    message: 'Mohon perbaikan proyektor di ruang Lab RPL 2 pada komputernya',
+    timestamp: '14 Sep 2026, 14:20 WIB',
     ticketId: 'ASP-ADH-8821'
   },
   {
@@ -312,8 +312,8 @@ export const INITIAL_ASPIRASI: {
     name: 'Dimas S.',
     grade: 'Kelas X (Sepuluh)',
     category: 'Kegiatan Ekstrakurikuler',
-    message: 'Apakah ekstrakurikuler Astronomi dan Robotika bisa mendapatkan alokasi ruang khusus untuk latihan rutin persiapan lomba?',
-    timestamp: '12 Sep 2024, 09:45 WIB',
+    message: 'Apakah ekstrakurikuler Computer Club bisa menambah materi coding?',
+    timestamp: '12 Sep 2026, 09:45 WIB',
     ticketId: 'ASP-ADH-8794'
   }
 ];

@@ -38,7 +38,7 @@ export default function VoteSimulationModal({ paslon, onClose }: VoteSimulationM
           <div className="p-5 rounded-xl bg-[#0e1c2f] text-white flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-center sm:text-left">
               <span className="text-[10px] font-bold text-[#ffe088] tracking-widest uppercase block font-heading">
-                KOMISI PEMILIHAN UMUM SISWA (KPU) SMAN 1 ADHIRAJASA
+                KOMISI PEMILIHAN UMUM SISWA (KPU) SMK N1 REMBANG
               </span>
               <h3 className="text-[20px] font-bold mt-1 font-heading">
                 Pasangan Calon No. {paslon.number}: {paslon.names}

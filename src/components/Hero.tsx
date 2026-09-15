@@ -39,7 +39,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ffe088]" />
           </span>
           <span className="text-[11px] font-bold tracking-wider uppercase font-heading">
-            DEWAN PENGURUS HARIAN MASA BAKTI 2024/2025
+            DEWAN PENGURUS HARIAN MASA BAKTI 2026/2027
           </span>
         </div>
 
@@ -108,7 +108,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             </div>
             <div>
               <div className="text-[22px] font-bold text-white leading-none mb-1 font-heading">
-                45+ Acara
+                99+ Acara
               </div>
               <div className="text-[13px] text-[#cbd5e1]">
                 Realisasi Program Terjadwal
