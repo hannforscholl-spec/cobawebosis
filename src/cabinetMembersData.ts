@@ -106,8 +106,8 @@ export const ALL_CABINET_MEMBERS: CabinetMember[] = [
     isCoordinator: false,
     bio: 'Pencatatan realisasi dana proposal kegiatan dan audit bukti pembayaran belanja kepanitiaan.',
     instagram: '@daffa.ibnu'
-
-    
+  },
+    {
     id: 'ph-7',
     name: 'Daffa Ibnu Sina',
     role: 'Wakil Bendahara',
