@@ -2,7 +2,7 @@ import { ArrowDown, Users, CheckCircle2, UserCheck, CalendarCheck } from 'lucide
 import ThreeBackground from './ThreeBackground.tsx';
 
 // Pastikan file gambar Anda di folder assets:
-import defaultHeroBg from '../assets/images/foto_bersama.jpg';
+import defaultHeroBg from '../assets/images/bareng.jpg';
 import defaultOsisLogo from '../assets/images/LOGO.png';
 
 interface HeroProps {
