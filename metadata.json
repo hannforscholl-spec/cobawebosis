@@ -1,0 +1,6 @@
+{
+  "name": "OSIS SMKN 1 REMBANG",
+  "description": "Portal Resmi Dewan Pengurus Harian OSIS SMKN 1 REMBANG",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
